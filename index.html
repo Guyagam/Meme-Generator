@@ -9,9 +9,20 @@
   <title>Meme Generator</title>
 </head>
 
-<body>
-  <section class="gallery-container"></section>
-  <section class="memeEditor-container"></section>
+<body onload="onInit();onGalleryInit()">
+  <section class="gallery-container">
+  </section>
+  <section class="memeEditor-container">
+    <canvas id="my-canvas"></canvas>
+    <div class="editor">
+      <input type="text" onchange="onsetLineTxt()" name="line-text" placeholder="Please enter your text" />
+    </div>
+  </section>
 </body>
+<script src="js/utils.js"></script>
+<script src="js/memeController.js"></script>
+<script src="js/galleryController.js"></script>
+<script src="js/Services/memeService.js"></script>
+
 
 </html>
