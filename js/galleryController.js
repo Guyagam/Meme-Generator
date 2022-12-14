@@ -7,7 +7,7 @@ function onGalleryInit() {
 function renderGallery() {
   const gallery = document.querySelector('.gallery-container')
   const strHTML = gImgs.map(img =>
-    `  <img onclick="onImgSelect(this)" src="${img.url}"id=${img.id}/>
+    `  <img onclick="onImgSelect(this)" src="${img.url}"id=${img.id}>
     `
   )
   gallery.innerHTML = strHTML.join('')
@@ -15,5 +15,6 @@ function renderGallery() {
 
 
 function onImgSelect(pic) {
-
+  setImg(pic.id)
+  renderMemes()
 }

@@ -29,9 +29,15 @@ var gMeme = {
     {
       txt: 'I sometimes eat Falafel',
       size: 20,
-      align: 'left',
+      align: 'center',
       color: 'red'
-    }
+    },
+    {
+      txt: 'I sometimes play soccer',
+      size: 20,
+      align: 'center',
+      color: 'blue'
+    },
   ]
 }
 
@@ -48,4 +54,29 @@ function setLineTxt(text) {
 
 function setImg(picId) {
   gMeme.selectedImgId = picId
+}
+
+
+function setColor(color) {
+  const line = gMeme.lines[gMeme.selectedLineIdx]
+  line.color = color
+}
+
+
+function changeFontsize(diff) {
+  const line = gMeme.lines[gMeme.selectedLineIdx]
+  if (line.size < 15) {
+    alert('Dont ruin Your Eyes!')
+    line.size = 15
+    return
+  }
+  line.size += diff
+
+}
+
+function changeLines(diff) {
+  gMeme.selectedLineIdx += diff
+  if (gMeme.selectedLineIdx >= gMeme.lines.length) {
+    gMeme.selectedLineIdx = 0
+  }
 }

@@ -16,6 +16,10 @@
     <canvas id="my-canvas"></canvas>
     <div class="editor">
       <input type="text" onchange="onsetLineTxt()" name="line-text" placeholder="Please enter your text" />
+      <input type="color" onchange="onsetColor(this.value)" name="color-picker">
+      <button onclick="onChangeFont(5)">+</button>
+      <button onclick="onChangeFont(-5)">-</button>
+      <button onclick="onSwitchLines(1)">Switch Lines</button>
     </div>
   </section>
 </body>

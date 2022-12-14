@@ -14,20 +14,21 @@ body {
 }
 
 #my-canvas {
-  width: 600px;
-  height: 600px;
+  width: 400px;
+  height: 400px;
   background-color: white;
 }
 
 .editor {
   background-color: antiquewhite;
-  width: 600px;
-  height: 600px;
+  width: 400px;
+  height: 400px;
 }
 
 
 .gallery-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  /* grid-template-rows: repeat(3, 1fr); */
   grid-gap: 5px;
 }
