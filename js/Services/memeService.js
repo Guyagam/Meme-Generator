@@ -21,7 +21,6 @@ var gImgs = [
   { id: 17, url: 'meme-imgs (square)/17.jpg', keywords: ['funny', 'cat'] },
   { id: 18, url: 'meme-imgs (square)/18.jpg', keywords: ['funny', 'cat'] },
 ];
-
 var gMeme = {
   selectedImgId: 1,
   selectedLineIdx: 0,
@@ -30,13 +29,18 @@ var gMeme = {
       txt: 'I sometimes eat Falafel',
       size: 20,
       align: 'center',
-      color: 'red'
+      color: 'red',
+      font: 'Impact',
+      pos: 0
+
     },
     {
       txt: 'I sometimes play soccer',
       size: 20,
       align: 'center',
-      color: 'red'
+      color: 'red',
+      font: 'Impact'
+
     },
   ]
 }
@@ -46,8 +50,7 @@ function getMeme() {
 }
 
 function setLineTxt(text) {
-  const line = gMeme.lines[gMeme.selectedLineIdx]
-  line.txt = text
+  gMeme.lines[gMeme.selectedLineIdx].txt = text
 }
 
 
@@ -79,4 +82,18 @@ function changeLines(diff) {
   if (gMeme.selectedLineIdx >= gMeme.lines.length) {
     gMeme.selectedLineIdx = 0
   }
+}
+
+
+function setFont(font) {
+  gMeme.lines[gMeme.selectedLineIdx].font = font
+}
+
+function setAlign(dir) {
+  gMeme.lines[gMeme.selectedLineIdx].align = dir
+
+}
+
+function setPosition(pos) {
+  gMeme.lines[gMeme.selectedLineIdx].pos += pos
 }

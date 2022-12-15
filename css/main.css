@@ -2,56 +2,47 @@
   box-sizing: border-box;
 }
 
-:root {
-  /* pallete */
-  /* header color */
-  --clr0: #292929;
-  /* brand color */
-  --clr1: #58c93a;
-  /* paragraph color */
-  --clr2: #606060;
-  /* card title color */
-  --clr3: #4f4e4e;
-  /* white color */
-  --clr4: #ffffff;
-  /* border color  */
-  --clr5: #e1e0e0;
-  /* card border color */
-  --clr6: #c2c2c2;
-  /* a footer color */
-  ---clr7: #818181;
-  /* footer bg */
-  ---clr8: #f8f8f8;
-  /* footer CR */
-  ---clr9: #a6a6a6;
 
-  /* bp */
-  --s: 600px;
-  --m: 740px;
-  --l: 980px;
+@font-face {
+  font-family: Montsrrat;
+  src: url(/fonts/Montserrat-Regular.ttf);
 }
 
 body {
   margin: 0px;
-  /* background-color: red; */
 }
 
 /* base */
+a,
+h4,
+p {
+  font-family: Montsrrat;
+  font-size: 1.428 rem;
+}
 
+a {
+  color: #ffffff;
+}
 
-
+h4 {
+  line-height: normal;
+}
 
 
 
 /*layoust*/
+.main-layout>*:not(.full) {
+  max-width: 1060px;
+  margin: 0 auto;
+}
 
-
-/*components*/
 /*header*/
 .main-header {
-  height: 66px;
-  width: 1200px;
   background-color: #ff7f00;
+}
+
+.main-header .main-nav li:not(:last-child) {
+  margin-inline-end: 100px;
 }
 
 /*helpers*/
@@ -68,28 +59,72 @@ body {
 }
 
 
-
-.logo img {
-  width: 123px;
-  height: 22px;
-
-  /* background-color: #292929; */
+/* list helpers */
+.clean-list {
+  margin: 0;
+  margin-inline-end: 100px;
+  padding: 0;
+  list-style-type: none;
 }
 
 
 
+li a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
+/* ///////////////////// */
 
 
+.logo img {
+  height: 25px;
+  width: 123px;
+  margin-left: 50px;
+  /* margin: 30px, 0px, 32px, 50px; */
+  /* background-color: #292929; */
+}
 
 
+/* guy_div */
+.col-div {
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+  margin-left: 20px;
+}
 
+.social-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
+.networkIcons {
+  margin: 5px;
+  width: 39px;
+  height: 39px;
+}
 
+.networkIcons:hover {
+  transform: scale(1.5);
+}
 
+.rounded-circle {
+  border-radius: 50%;
+  width: 322px;
+  width: 322px;
+}
 
+.team-member {
+  display: flex;
+  flex-direction: row;
+}
 
-
-
+/* ///////////////////////// */
 
 .memeEditor-container {
   /* display: flex; */
@@ -115,4 +150,20 @@ img {
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   /* grid-template-rows: repeat(3, 1fr); */
   grid-gap: 10px;
+}
+
+
+
+/* ////footer///////// */
+.footer {
+  background-color: #ff7f00;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.footer img {
+  height: 25px;
+  width: 123px;
 }
