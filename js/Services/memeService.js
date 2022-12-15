@@ -36,7 +36,7 @@ var gMeme = {
       txt: 'I sometimes play soccer',
       size: 20,
       align: 'center',
-      color: 'blue'
+      color: 'red'
     },
   ]
 }

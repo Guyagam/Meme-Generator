@@ -10,18 +10,32 @@
 </head>
 
 <body onload="onInit();onGalleryInit()">
-  <section class="gallery-container">
-  </section>
+  <header class="main-header flex align-center space-between">
+    <div class="logo"><img src="pic/Layer_2.png"> </div>
+    <nav class="main-nav">
+      <ul class="flex clean-list">
+        <li><a href="#">Lifestyle</a></li>
+        <li><a href="#">Photodiary</a></li>
+        <li><a href="#">Music</a></li>
+        <li><a href="#">Travel</a></li>
+      </ul>
+    </nav>
+    <!-- <button class="menu-toggle-btn" onclick="toggleMenu()">☰</button> -->
+  </header>
   <section class="memeEditor-container">
-    <canvas id="my-canvas"></canvas>
+    <canvas id="my-canvas" style="width: 600px; height: 600px;"></canvas>
     <div class="editor">
-      <input type="text" onchange="onsetLineTxt()" name="line-text" placeholder="Please enter your text" />
+      <input type="text" onchange="onsetLineTxt()" name="line-text" />
       <input type="color" onchange="onsetColor(this.value)" name="color-picker">
       <button onclick="onChangeFont(5)">+</button>
       <button onclick="onChangeFont(-5)">-</button>
       <button onclick="onSwitchLines(1)">Switch Lines</button>
+      <button onclick="backToGallery()">Back to Meme selection</button>
     </div>
   </section>
+  <section class="gallery-container">
+  </section>
+
 </body>
 <script src="js/utils.js"></script>
 <script src="js/memeController.js"></script>

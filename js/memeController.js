@@ -5,20 +5,28 @@ let gCtx
 function onInit() {
   gElCanvas = document.getElementById('my-canvas')
   gCtx = gElCanvas.getContext('2d')
+
   renderMemes()
 }
 
 
 function renderMemes() {
+  document.querySelector('input[name="line-text"]').placeholder = gMeme.lines[gMeme.selectedLineIdx].txt
   const currMeme = getMeme()
-  var img = new Image();
   const line = gMeme.lines
-  img.addEventListener("load", function () {
-    renderImg(img)
-    drawText(line[0].txt, gElCanvas.width / 2, 15)
-    drawText(line[1].txt, gElCanvas.width / 2, gElCanvas.height)
-  }, false);
+  var img = new Image();
   img.src = `meme-imgs (square)/${currMeme.selectedImgId}.jpg`;
+  img.onload = function () {
+    gElCanvas.width = this.naturalWidth;
+    gElCanvas.height = this.naturalHeight;
+    gCtx.drawImage(this, 0, 0);
+    drawText(line[0].txt, gElCanvas.width / 2, 25)
+    drawText(line[1].txt, gElCanvas.width / 2, gElCanvas.height)
+  };
+  // img.addEventListener("load", function () {
+  //   renderImg(img)
+
+  // }, false);
 }
 
 function renderImg(img) {
@@ -40,6 +48,7 @@ function drawText(text, x, y) {
 function onsetLineTxt() {
   const LINETXT = document.querySelector('input[name="line-text"]').value
   setLineTxt(LINETXT)
+  document.querySelector('input[name="line-text"]').value = '';
   renderMemes()
 }
 
@@ -58,4 +67,12 @@ function onChangeFont(diff) {
 
 function onSwitchLines(num) {
   changeLines(num)
+  document.querySelector('input[name="line-text"]').placeholder = gMeme.lines[gMeme.selectedLineIdx].txt
+}
+
+function backToGallery() {
+  document.querySelector('.gallery-container').style.display = 'block'
+  document.querySelector('.gallery-container').style.display = 'grid'
+  document.querySelector('.memeEditor-container').style.display = 'none'
+  // document.querySelector('.memeEditor-container').style.display = 'flex'
 }

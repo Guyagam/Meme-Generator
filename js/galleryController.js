@@ -16,5 +16,9 @@ function renderGallery() {
 
 function onImgSelect(pic) {
   setImg(pic.id)
+  document.querySelector('.gallery-container').style.display = 'none'
+  document.querySelector('.memeEditor-container').style.display = 'block'
+  document.querySelector('.memeEditor-container').style.display = 'flex'
   renderMemes()
 }
+
