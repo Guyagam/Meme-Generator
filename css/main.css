@@ -17,7 +17,7 @@ a,
 h4,
 p {
   font-family: Montsrrat;
-  font-size: 1.428 rem;
+  font-size: 1 rem;
 }
 
 a {
@@ -126,22 +126,164 @@ a:hover {
 
 /* ///////////////////////// */
 
-.memeEditor-container {
-  /* display: flex; */
-  flex-direction: row;
-  justify-content: center;
-  display: none;
+canvas {
+  align-self: center;
+  justify-self: center;
 }
 
 
+
+/* //////editor////// */
+
+.memeEditor-container {
+  /* display: flex; */
+  /* flex-direction: row; */
+  /* display: grid; */
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  display: none;
+  background-color: lightgray;
+}
+
 .editor {
-  background-color: antiquewhite;
+  display: grid;
+  padding: 150px;
+  /* grid-template-columns: repeat(5, 1fr); */
+  grid-template-areas:
+    "span-line   span-line    span-line    span-line    span-line   "
+    "text   text    text    text    text   "
+    "up   down    add    delete    switch-line"
+    "increase   decrease    align-left    align-center    align-right"
+    "font-set   font-set    font-set    fill-color    stroke-color"
+    "btn-share  btn-share   btn-download    btn-download    btn-download"
+  ;
+  /* background-color: antiquewhite; */
   width: 600px;
   height: 600px;
 }
 
-img {
+.editor img {
+  width: 25px;
+}
+
+.span-line {
+  grid-area: span-line;
+}
+
+.text-line {
+  grid-area: text;
+}
+
+.up {
+  grid-area: up;
+}
+
+.down {
+  grid-area: down;
+}
+
+.add {
+  grid-area: add;
+}
+
+.delete {
+  grid-area: delete;
+}
+
+.switch-line {
+  grid-area: switch-line;
+}
+
+.increase {
+  grid-area: increase;
+}
+
+.decrease {
+  grid-area: decrease;
+}
+
+.align-left {
+  grid-area: align-left;
+}
+
+.align-center {
+  grid-area: align-center;
+}
+
+.align-right {
+  grid-area: align-right;
+}
+
+.font-set {
+  grid-area: font-set;
+}
+
+.fill-color {
+  grid-area: fill-color;
+}
+
+.stroke-color {
+  grid-area: stroke-color;
+}
+
+.btn-share {
+  grid-area: btn-share;
+  margin: 5px;
+  height: 45px;
+  width: 120px;
+  border-radius: 5px;
+  background-color: black;
+  color: #ffffff;
+}
+
+.btn-download {
+  grid-area: btn-download;
+  margin: 5px;
+  height: 45px;
+  width: 170px;
+  border-radius: 5px;
+  background-color: black;
+  color: #ffffff;
+}
+
+.btn-download:hover,
+.btn-share:hover {
+  background-color: darkgray;
+}
+
+.btn-download a {
+  text-decoration: none;
+}
+
+
+.editor .btn-editor,
+.editor select,
+.fill-color,
+.stroke-color {
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 45px;
+  height: 45px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.editor select {
+  width: 170px;
+}
+
+/* /////////////////////////////////// */
+
+
+
+
+.gallery-container img {
   width: 100%;
+  cursor: pointer;
+}
+
+.gallery-container img:hover {
+  transform: scale(1.1);
 
 }
 

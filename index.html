@@ -14,31 +14,48 @@
     <div class="logo"><img src="pic/LOGO.png"> </div>
     <nav class="main-nav">
       <ul class="flex clean-list">
-        <li><a href="#">Gallery</a></li>
+        <li><a onclick="backToGallery()" href="#">Gallery</a></li>
         <li><a href="#">About</a></li>
       </ul>
     </nav>
     <!-- <button class="menu-toggle-btn" onclick="toggleMenu()">☰</button> -->
   </header>
-  <section class="memeEditor-container">
-    <canvas id="my-canvas" style="width: 600px; height: 600px;"></canvas>
+  <section class="memeEditor-container full">
+    <canvas id="my-canvas" style="width: 600px; height: 600px;" height="600" width="600"></canvas>
     <div class="editor">
-      <input type="text" onkeyup="onsetLineTxt(this.value)" name="line-text" />
-      <input type="color" onchange="onsetColor(this.value)" name="color-picker">
-      <button onclick="onChangeFont(5)"><img src="icons/increase_font_-_icon.png"></button>
-      <button onclick="onChangeFont(-5)"><img src="icons/decrease_font_-_icon.png"></button>
-      <button onclick="onSwitchLines(1)"><img src="icons/up-and-down-opposite-double-arrows-side-by-side.png"></button>
-      <select onchange="onFontSet(this.value)" class="select-font">
+      <span class="span-line">you are on line: <span class="line-count">1</span></span>
+      <input class="text-line " type="text" onkeyup="onsetLineTxt(this.value)" name="line-text" />
+      <button class="up btn-editor" onclick="onTextPosition(2)"><img src="icons/icons8-up-16.png"></button>
+      <button class="down btn-editor" onclick="onTextPosition(-2)"><img src="icons/downArrow.png"></button>
+      <button class="add btn-editor" onclick="onAddLine()"><img src="icons/add.png"></button>
+      <button class="delete btn-editor" onclick="onClearLine()"><img src="icons/trash.png"></button>
+      <button class="switch-line btn-editor" onclick="onSwitchLines(1)"><img
+          src="icons/up-and-down-opposite-double-arrows-side-by-side.png">
+      </button>
+      <button class="increase btn-editor" onclick="onChangeFont(5)"><img src="icons/increase_font_-_icon.png"></button>
+      <button class="decrease btn-editor" onclick="onChangeFont(-5)"><img src="icons/decrease_font_-_icon.png"></button>
+      <button class="align-left btn-editor" onclick="onAlignText('end')"><img src="icons/align-to-left.png"></button>
+      <button class="align-center btn-editor" onclick="onAlignText('center')"><img
+          src="icons/center-text-alignment.png"></button>
+      <button class="align-right btn-editor" onclick="onAlignText('rigth')"><img
+          src="icons/align-to-right.png"></button>
+      <select class="font-set " onchange="onFontSet(this.value)" class="select-font">
         <option value="Montsrrat">Montsrrat</option>
         <option value="Arial">Arial</option>
         <option value="Impact">Impact</option>
       </select>
-      <button onclick="onAlignText('end')"><img src="icons/align-to-left.png"></button>
-      <button onclick="onAlignText('center')"><img src="icons/center-text-alignment.png"></button>
-      <button onclick="onAlignText('rigth')"><img src="icons/align-to-right.png"></button>
-      <button onclick="onTextPosition(2)"><img src="icons/icons8-up-16.png"></button>
-      <button onclick="onTextPosition(-2)"><img src="icons/downArrow.png"></button>
-      <button onclick="backToGallery()">Back to Meme selection</button>
+      <input class="fill-color btn-editor" type="color" onchange="onsetColor(this.value)" name="color-picker">
+      <input class="stroke-color btn-editor" type="color" onchange="onsetStroke(this.value)" name="stroke-picker">
+      <!-- <button class="backBtn" onclick="backToGallery()">Back to Meme selection</button> -->
+
+
+      <button class="btn-share" onclick="onUploadImg()">
+        Share
+      </button>
+      <button class="btn-download">
+        <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download</a>
+      </button>
+
     </div>
   </section>
   <section class="gallery-container">
@@ -66,6 +83,7 @@
 <script src="js/utils.js"></script>
 <script src="js/memeController.js"></script>
 <script src="js/galleryController.js"></script>
+<script src="js/Services/upload_service.js"></script>
 <script src="js/Services/memeService.js"></script>
 
 
